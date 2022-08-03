@@ -14,6 +14,10 @@
 		7572A5832895D13A00EBA84D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7572A5812895D13A00EBA84D /* LaunchScreen.storyboard */; };
 		7572A58E2895D13A00EBA84D /* BigFlixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572A58D2895D13A00EBA84D /* BigFlixTests.swift */; };
 		7572A5982895D13A00EBA84D /* BigFlixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572A5972895D13A00EBA84D /* BigFlixUITests.swift */; };
+		757CCD9B289B3B39003492D9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CCD9A289B3B39003492D9 /* HomeViewController.swift */; };
+		757CCD9D289B3FA6003492D9 /* UpComingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CCD9C289B3FA6003492D9 /* UpComingViewController.swift */; };
+		757CCD9F289B3FEE003492D9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CCD9E289B3FEE003492D9 /* SearchViewController.swift */; };
+		757CCDA1289B403B003492D9 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CCDA0289B403B003492D9 /* DownloadsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,10 @@
 		7572A58D2895D13A00EBA84D /* BigFlixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigFlixTests.swift; sourceTree = "<group>"; };
 		7572A5932895D13A00EBA84D /* BigFlixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BigFlixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7572A5972895D13A00EBA84D /* BigFlixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigFlixUITests.swift; sourceTree = "<group>"; };
+		757CCD9A289B3B39003492D9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		757CCD9C289B3FA6003492D9 /* UpComingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingViewController.swift; sourceTree = "<group>"; };
+		757CCD9E289B3FEE003492D9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		757CCDA0289B403B003492D9 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +103,9 @@
 		7572A5752895D13500EBA84D /* BigFlix */ = {
 			isa = PBXGroup;
 			children = (
+				757CCD99289B3AEE003492D9 /* Controllers */,
 				7572A5762895D13500EBA84D /* AppDelegate.swift */,
 				7572A5782895D13500EBA84D /* SceneDelegate.swift */,
-				7572A57A2895D13500EBA84D /* MainTabBarViewController.swift */,
 				7572A57F2895D13A00EBA84D /* Assets.xcassets */,
 				7572A5812895D13A00EBA84D /* LaunchScreen.storyboard */,
 				7572A5842895D13A00EBA84D /* Info.plist */,
@@ -119,6 +127,18 @@
 				7572A5972895D13A00EBA84D /* BigFlixUITests.swift */,
 			);
 			path = BigFlixUITests;
+			sourceTree = "<group>";
+		};
+		757CCD99289B3AEE003492D9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7572A57A2895D13500EBA84D /* MainTabBarViewController.swift */,
+				757CCD9A289B3B39003492D9 /* HomeViewController.swift */,
+				757CCD9E289B3FEE003492D9 /* SearchViewController.swift */,
+				757CCDA0289B403B003492D9 /* DownloadsViewController.swift */,
+				757CCD9C289B3FA6003492D9 /* UpComingViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,9 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				757CCD9F289B3FEE003492D9 /* SearchViewController.swift in Sources */,
 				7572A57B2895D13500EBA84D /* MainTabBarViewController.swift in Sources */,
+				757CCDA1289B403B003492D9 /* DownloadsViewController.swift in Sources */,
 				7572A5772895D13500EBA84D /* AppDelegate.swift in Sources */,
+				757CCD9D289B3FA6003492D9 /* UpComingViewController.swift in Sources */,
 				7572A5792895D13500EBA84D /* SceneDelegate.swift in Sources */,
+				757CCD9B289B3B39003492D9 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
