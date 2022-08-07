@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7507215228A0737400BB3DE2 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7507215128A0737400BB3DE2 /* CollectionViewTableViewCell.swift */; };
 		7572A5772895D13500EBA84D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572A5762895D13500EBA84D /* AppDelegate.swift */; };
 		7572A5792895D13500EBA84D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572A5782895D13500EBA84D /* SceneDelegate.swift */; };
 		7572A57B2895D13500EBA84D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572A57A2895D13500EBA84D /* MainTabBarViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7507215128A0737400BB3DE2 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		7572A5732895D13500EBA84D /* BigFlix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigFlix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7572A5762895D13500EBA84D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7572A5782895D13500EBA84D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7507214D28A0639F00BB3DE2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7507215128A0737400BB3DE2 /* CollectionViewTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7507214E28A063E900BB3DE2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7507214F28A0641600BB3DE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7507215028A0723100BB3DE2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7572A56A2895D13500EBA84D = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +134,10 @@
 		7572A5752895D13500EBA84D /* BigFlix */ = {
 			isa = PBXGroup;
 			children = (
+				7507215028A0723100BB3DE2 /* Resources */,
+				7507214F28A0641600BB3DE2 /* Models */,
+				7507214E28A063E900BB3DE2 /* ViewModels */,
+				7507214D28A0639F00BB3DE2 /* Views */,
 				757CCD99289B3AEE003492D9 /* Controllers */,
 				7572A5762895D13500EBA84D /* AppDelegate.swift */,
 				7572A5782895D13500EBA84D /* SceneDelegate.swift */,
@@ -273,6 +308,7 @@
 			files = (
 				757CCD9F289B3FEE003492D9 /* SearchViewController.swift in Sources */,
 				7572A57B2895D13500EBA84D /* MainTabBarViewController.swift in Sources */,
+				7507215228A0737400BB3DE2 /* CollectionViewTableViewCell.swift in Sources */,
 				757CCDA1289B403B003492D9 /* DownloadsViewController.swift in Sources */,
 				7572A5772895D13500EBA84D /* AppDelegate.swift in Sources */,
 				757CCD9D289B3FA6003492D9 /* UpComingViewController.swift in Sources */,
