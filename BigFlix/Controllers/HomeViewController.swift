@@ -27,9 +27,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // add data
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
+        // inialize headerView
+        let headerView = HeroHeaderUIVew(frame: CGRect(
+            x: 0,
+            y: 0,
+            width: view.bounds.width,
+            height: 370))
+        
         
         // tableview header
-        homeFeedTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 350))
+        homeFeedTable.tableHeaderView = headerView
         
     }
     // added a frame
