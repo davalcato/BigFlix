@@ -13,9 +13,8 @@ class HeroHeaderUIVew: UIView {
     private let playButton: UIButton = {
         let button = UIButton()
         button.setTitle("Play", for: .normal)
-        button.layer.borderColor = UIColor.systemBackground.cgColor
+        button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
-        
         // constraints for button
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
