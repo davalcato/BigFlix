@@ -9,6 +9,10 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // an array to hold text
+    let sectionTitles: [String] = ["Trending Movies", "Trending Tv", "Top Rated", "Up Coming Movies", "Popular"]
+    
+    
     private let homeFeedTable: UITableView = {
         // Instantize the table here
         let table = UITableView(frame: .zero, style: .grouped)
@@ -82,7 +86,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 20
+        return sectionTitles.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,11 +114,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let offset = scrollView.contentOffset.y + defaultOffset
         
         navigationController?.navigationBar.transform = .init(translationX: 1, y: min(0, -offset))
-        
-        
-        
     }
-    
+    // titles in sections
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
     
     
 }
