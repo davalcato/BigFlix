@@ -46,15 +46,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     private func configureNavBar() {
         // grab the image
         var image = UIImage(named: "netflixLogo")
-        // modify the image alwaysOriginal force image as is 
+        // modify the image alwaysOriginal force image as is
         image = image?.withRenderingMode(.alwaysOriginal)
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: image,
             style: .done,
             target: self,
             action: nil)
         
+        // an array of items
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(
+                image: UIImage(systemName: "person"),
+                style: .done,
+                target: self,
+                action: nil),
+            
+            UIBarButtonItem(
+                image: UIImage(systemName: "play.rectangle"),
+                style: .done,
+                target: self,
+                action: nil)
+            
+        
+        
+        ]
         
         
     }
