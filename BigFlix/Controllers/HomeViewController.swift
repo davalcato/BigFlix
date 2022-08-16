@@ -68,7 +68,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 target: self,
                 action: nil)
         ]
-        // image icon color here 
+        // image icon color here
         navigationController?.navigationBar.tintColor = .white
         
         
@@ -104,7 +104,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+    // algorithm that cause the NavBar to disaapear
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let defaultOffset = view.safeAreaInsets.top
+        let offset = scrollView.contentOffset.y + defaultOffset
+        
+        navigationController?.navigationBar.transform = .init(translationX: 1, y: min(0, -offset))
+        
+        
+        
+    }
+    
+    
+    
 }
+
+
+
+
+
     
     
 
