@@ -67,10 +67,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 style: .done,
                 target: self,
                 action: nil)
-            
-        
-        
         ]
+        // image icon color here 
+        navigationController?.navigationBar.tintColor = .white
         
         
     }
