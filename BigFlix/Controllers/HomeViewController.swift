@@ -27,6 +27,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // add data
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
+        
+        configureNavBar()
+        
+        
         // inialize headerView
         let headerView = HeroHeaderUIVew(frame: CGRect(
             x: 0,
@@ -34,11 +38,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             width: view.bounds.width,
             height: 370))
         
-        
         // tableview header
         homeFeedTable.tableHeaderView = headerView
         
     }
+    
+    private func configureNavBar() {
+        // grab the image
+        var image = UIImage(named: "netflixLogo")
+        // modify the image alwaysOriginal force image as is 
+        image = image?.withRenderingMode(.alwaysOriginal)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: image,
+            style: .done,
+            target: self,
+            action: nil)
+        
+        
+        
+    }
+    
+    
     // added a frame
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
