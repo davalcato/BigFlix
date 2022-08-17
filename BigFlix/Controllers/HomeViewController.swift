@@ -19,7 +19,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // registered customize cell
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
-        
     }()
 
     override func viewDidLoad() {
@@ -34,7 +33,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         configureNavBar()
         
-        
         // inialize headerView
         let headerView = HeroHeaderUIVew(frame: CGRect(
             x: 0,
@@ -44,7 +42,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // tableview header
         homeFeedTable.tableHeaderView = headerView
-        
     }
     
     private func configureNavBar() {
@@ -74,10 +71,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         ]
         // image icon color here
         navigationController?.navigationBar.tintColor = .white
-        
-        
     }
-    
     
     // added a frame
     override func viewDidLayoutSubviews() {
@@ -118,11 +112,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             y: header.bounds.origin.y,
             width: 100,
             height: header.bounds.height)
-        
-        
-                
+        // change color of font
+        header.textLabel?.textColor = .white        
     }
-    
     
     // algorithm that cause the NavBar to disaapear
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
