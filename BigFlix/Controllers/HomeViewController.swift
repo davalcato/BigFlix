@@ -113,7 +113,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             width: 100,
             height: header.bounds.height)
         // change color of font
-        header.textLabel?.textColor = .white        
+        header.textLabel?.textColor = .white
+        header.textLabel?.text = header.textLabel?.text?.lowercased()
     }
     
     // algorithm that cause the NavBar to disaapear
