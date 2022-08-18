@@ -42,6 +42,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // tableview header
         homeFeedTable.tableHeaderView = headerView
+        
+        getTrendingMovies()
     }
     
     private func configureNavBar() {
@@ -78,7 +80,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
     }
-    
+    // calling the getTrendingMovies
+    private func getTrendingMovies() {
+        APICaller.shared.getTrendingMovies { _ in
+            
+        }
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }

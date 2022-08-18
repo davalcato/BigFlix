@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750205E428ADACD700A8FA95 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750205E328ADACD700A8FA95 /* APICaller.swift */; };
 		7507215228A0737400BB3DE2 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7507215128A0737400BB3DE2 /* CollectionViewTableViewCell.swift */; };
 		7507215428A31C6200BB3DE2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7507215328A31C6200BB3DE2 /* ProfileViewController.swift */; };
 		7556FAE328A85B7E001F7D60 /* HeroHeaderUIVew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FAE228A85B7E001F7D60 /* HeroHeaderUIVew.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		750205E328ADACD700A8FA95 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		7507215128A0737400BB3DE2 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		7507215328A31C6200BB3DE2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7556FAE228A85B7E001F7D60 /* HeroHeaderUIVew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIVew.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		750205E228ADACB100A8FA95 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				750205E328ADACD700A8FA95 /* APICaller.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		7507214D28A0639F00BB3DE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +149,7 @@
 		7572A5752895D13500EBA84D /* BigFlix */ = {
 			isa = PBXGroup;
 			children = (
+				750205E228ADACB100A8FA95 /* Manager */,
 				7507215028A0723100BB3DE2 /* Resources */,
 				7507214F28A0641600BB3DE2 /* Models */,
 				7507214E28A063E900BB3DE2 /* ViewModels */,
@@ -320,6 +331,7 @@
 				7556FAE328A85B7E001F7D60 /* HeroHeaderUIVew.swift in Sources */,
 				757CCD9D289B3FA6003492D9 /* UpComingViewController.swift in Sources */,
 				7507215428A31C6200BB3DE2 /* ProfileViewController.swift in Sources */,
+				750205E428ADACD700A8FA95 /* APICaller.swift in Sources */,
 				7572A5792895D13500EBA84D /* SceneDelegate.swift in Sources */,
 				757CCD9B289B3B39003492D9 /* HomeViewController.swift in Sources */,
 			);
