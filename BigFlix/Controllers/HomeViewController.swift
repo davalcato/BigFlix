@@ -82,10 +82,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     // calling the getTrendingMovies
     private func getTrendingMovies() {
-        APICaller.shared.getTrendingMovies { _ in
-            
+        APICaller.shared.getTrendingMovies { results in
+            switch results {
+                
+            case.success(let movies):
+                print(movies)
+            case.failure(let error):
+                print(error)
+                
+            }
         }
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }
