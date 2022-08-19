@@ -11,6 +11,7 @@
 		7507215228A0737400BB3DE2 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7507215128A0737400BB3DE2 /* CollectionViewTableViewCell.swift */; };
 		7507215428A31C6200BB3DE2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7507215328A31C6200BB3DE2 /* ProfileViewController.swift */; };
 		7533714128AF0386009E92A8 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7533714028AF0386009E92A8 /* Movie.swift */; };
+		7533714328B053E8009E92A8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7533714228B053E8009E92A8 /* Extensions.swift */; };
 		7556FAE328A85B7E001F7D60 /* HeroHeaderUIVew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FAE228A85B7E001F7D60 /* HeroHeaderUIVew.swift */; };
 		7572A5772895D13500EBA84D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572A5762895D13500EBA84D /* AppDelegate.swift */; };
 		7572A5792895D13500EBA84D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572A5782895D13500EBA84D /* SceneDelegate.swift */; };
@@ -47,6 +48,7 @@
 		7507215128A0737400BB3DE2 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		7507215328A31C6200BB3DE2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7533714028AF0386009E92A8 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		7533714228B053E8009E92A8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7556FAE228A85B7E001F7D60 /* HeroHeaderUIVew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIVew.swift; sourceTree = "<group>"; };
 		7572A5732895D13500EBA84D /* BigFlix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigFlix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7572A5762895D13500EBA84D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		7507215028A0723100BB3DE2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7533714228B053E8009E92A8 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				7572A5772895D13500EBA84D /* AppDelegate.swift in Sources */,
 				7556FAE328A85B7E001F7D60 /* HeroHeaderUIVew.swift in Sources */,
 				757CCD9D289B3FA6003492D9 /* UpComingViewController.swift in Sources */,
+				7533714328B053E8009E92A8 /* Extensions.swift in Sources */,
 				7507215428A31C6200BB3DE2 /* ProfileViewController.swift in Sources */,
 				750205E428ADACD700A8FA95 /* APICaller.swift in Sources */,
 				7572A5792895D13500EBA84D /* SceneDelegate.swift in Sources */,

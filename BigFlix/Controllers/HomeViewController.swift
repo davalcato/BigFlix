@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // an array to hold text
-    let sectionTitles: [String] = ["Trending Movies", "Trending Tv", "Top Rated", "Up Coming Movies", "Popular"]
+    let sectionTitles: [String] = ["Trending Movies", "Trending Tv", "Popular", "Up Coming Movies", "Top Rated"]
     
     
     private let homeFeedTable: UITableView = {
@@ -129,7 +129,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             height: header.bounds.height)
         // change color of font
         header.textLabel?.textColor = .white
-        header.textLabel?.text = header.textLabel?.text?.lowercased()
+        header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
     }
     
     // algorithm that cause the NavBar to disaapear
