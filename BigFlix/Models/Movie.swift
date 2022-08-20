@@ -13,6 +13,7 @@ struct TrendingMoviesResponse: Codable {
     let results: [Movie]
     
 }
+
 struct Movie: Codable {
     // add the attributes
     let id: Int

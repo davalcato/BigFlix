@@ -45,7 +45,7 @@ class APICaller {
         // created the task
         task.resume()
     }
-    func getTrendingTvs(completion: @escaping (Result<[String], Error>) -> Void) {
+    func getTrendingTvs(completion: @escaping (Result<[Tv], Error>) -> Void) {
         // intialize the URL
         guard let url = URL(string: "\(Constants.baseURL)/3/trending/tv/day?api_key=\(Constants.API_KEY)") else {return }
         // new task with a request
@@ -57,9 +57,7 @@ class APICaller {
             }
             
             do {
-                let results = try JSONSerialization.jsonObject(
-                    with: data,
-                    options: .fragmentsAllowed)
+                let results = try JSONDecoder().decode(TrendingTvResponse.self, from: data)
                 print(results)
             }
             // catch if there are any errors
