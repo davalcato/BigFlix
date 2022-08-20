@@ -94,8 +94,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //            }
 //        }
         
-        APICaller.shared.getTrendingTvs { results in
-            // 
+//        APICaller.shared.getTrendingTvs { results in
+//            //
+//        }
+        
+        APICaller.shared.getUpcomingMovies { _ in
+            
         }
     }
     
