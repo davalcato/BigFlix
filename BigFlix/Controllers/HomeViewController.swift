@@ -102,7 +102,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //
 //        }
         
-        APICaller.shared.getPopular { _ in
+//        APICaller.shared.getPopular { _ in
+//
+//        }
+        
+        APICaller.shared.getTopRated { _ in
             
         }
     }
