@@ -8,13 +8,13 @@
 import Foundation
 
 // conform to the codable -
-struct TrendingMoviesResponse: Codable {
+struct TrendingTitleResponse: Codable {
     // create array of movie
-    let results: [Movie]
+    let results: [Title]
     
 }
 
-struct Movie: Codable {
+struct Title: Codable {
     // add the attributes
     let id: Int
     let media_type: String?
