@@ -79,6 +79,7 @@ class APICaller {
             guard let data = data, error == nil else {
                 return
             }
+            
             do {
                 
                 let results = try JSONDecoder().decode(TrendingTvResponse.self, from: data)
@@ -88,7 +89,29 @@ class APICaller {
                 
             }
         }
-        
+        // resume task
+        task.resume()
+    }
+    // new func for getPopular
+    func getPopular(completion: @escaping (Result<[Movie], Error>) -> Void) {
+        guard let url = URL(string:
+                                "\(Constants.baseURL)/3/movie/popular?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
+        // data task
+        let task = URLSession.shared.dataTask(
+            with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                
+                let results = try JSONDecoder().decode(TrendingMoviesResponse.self, from: data)
+                print(results)
+            } catch {
+                print(error.localizedDescription)
+                
+            }
+        }
         // resume task
         task.resume()
     }
