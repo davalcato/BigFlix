@@ -7,7 +7,27 @@
 
 import UIKit
 
+// define new enum
+enum Sections: Int {
+    // define cases
+    case TrendingMovies = 0
+    case TrendingTv = 1
+    case Popular = 2
+    case Upcoming = 3
+    case TopRated = 4
+}
+
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    
+    
     
     // an array to hold text
     let sectionTitles: [String] = ["Trending Movies", "Trending Tv", "Popular", "Up Coming Movies", "Top Rated"]
@@ -43,7 +63,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // tableview header
         homeFeedTable.tableHeaderView = headerView
         
-        fetchData()
     }
     
     private func configureNavBar() {
@@ -83,33 +102,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // calling the getTrendingMovies
     private func fetchData() {
         
-//        APICaller.shared.getTrendingMovies { results in
-//            switch results {
-//
-//            case.success(let movies):
-//                print(movies)
-//            case.failure(let error):
-//                print(error)
-//
-//            }
-//        }
-        
-//        APICaller.shared.getTrendingTvs { results in
-//            //
-//        }
-        
-//        APICaller.shared.getUpcomingMovies { _ in
-//
-//        }
-        
-//        APICaller.shared.getPopular { _ in
-//
-//        }
-        
-        APICaller.shared.getTopRated { _ in
-            
-        }
-    }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
@@ -121,7 +114,69 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        switch indexPath.section {
             
+            // handle the cases for each section
+        case Sections.TrendingMovies.rawValue:
+            // make the API call
+            APICaller.shared.getTrendingMovies { result in
+                switch result {
+                case .success(let titles):
+                    // pass results
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.TrendingTv.rawValue:
+            // make the API call
+            APICaller.shared.getTrendingTvs { result in
+                switch result {
+                case .success(let titles):
+                    // pass results
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.Popular.rawValue:
+            // make the API call
+            APICaller.shared.getPopular { result in
+                switch result {
+                case .success(let titles):
+                    // pass results
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.Upcoming.rawValue:
+            // make the API call
+            APICaller.shared.getUpcomingMovies { result in
+                switch result {
+                case .success(let titles):
+                    // pass results
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case Sections.TopRated.rawValue:
+            // make the API call
+            APICaller.shared.getTopRated { result in
+                switch result {
+                case .success(let titles):
+                    // pass results
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        default:
             return UITableViewCell()
         }
         
@@ -134,6 +189,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+        
     // get the header for each section
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
@@ -161,6 +217,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return sectionTitles[section]
     }
     
+  }
     
 }
 

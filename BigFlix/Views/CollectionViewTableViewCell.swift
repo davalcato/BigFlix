@@ -11,6 +11,9 @@ class CollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CollectionViewTableViewCell"
     
+    // intialize private to hold an array
+    private var titles: [Title] = [Title]()
+    
     private let collectionView: UICollectionView = {
         // define layout
         let layout = UICollectionViewFlowLayout()
@@ -22,7 +25,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         // register tableview
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
         
         
         return collectionView
@@ -48,17 +51,28 @@ class CollectionViewTableViewCell: UITableViewCell {
     // frame
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         // collectioView the entire body of cell
         collectionView.frame = contentView.bounds
+    }
+    // feed the titles for each section
+    public func configure(with titles: [Title]) {
+        // reference the titles for each section 
+        self.titles = titles
+        
     }
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .green
+        // instead of dequeueReusableCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        // have access to the configure
+        cell.configure(with: "")
+        
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

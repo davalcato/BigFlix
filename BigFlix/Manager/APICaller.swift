@@ -39,7 +39,7 @@ class APICaller {
                 completion(.success(results.results))
                 
             } catch {
-                completion(.failure(error))
+                completion(.failure(APIError.failedTogetData))
             }
         }
         // created the task
@@ -58,11 +58,11 @@ class APICaller {
             
             do {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
-                print(results)
+                completion(.success(results.results))
             }
             // catch if there are any errors
             catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedTogetData))
             }
         }
         
@@ -85,7 +85,7 @@ class APICaller {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 print(results)
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedTogetData))
                 
             }
         }
@@ -102,14 +102,12 @@ class APICaller {
             guard let data = data, error == nil else {
                 return
             }
-            
             do {
-                
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
-                print(results)
-            } catch {
-                print(error.localizedDescription)
+                completion(.success(results.results))
                 
+            } catch {
+                completion(.failure(APIError.failedTogetData))
             }
         }
         // resume task
@@ -128,9 +126,10 @@ class APICaller {
             do {
                 
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
-                print(results)
+                completion(.success(results.results))
+                
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedTogetData))
                 
             }
         }
