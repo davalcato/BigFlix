@@ -56,9 +56,12 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
     // feed the titles for each section
     public func configure(with titles: [Title]) {
-        // reference the titles for each section 
+        // reference the titles array for each section 
         self.titles = titles
-        
+        // reload the data from the collection on the main thread
+        DispatchQueue.main.sync { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
 }
 
@@ -68,16 +71,17 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
             return UICollectionViewCell()
         }
-        // have access to the configure
-        cell.configure(with: "")
+        // optional string
+        guard let model = titles[indexPath.row].poster_path else {
+            return UICollectionViewCell()
+        }
+        // have access to the configure or each title
+        cell.configure(with: model)
         
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return titles.count
     }
-    
-    
 }

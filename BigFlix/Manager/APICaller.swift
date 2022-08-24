@@ -62,6 +62,7 @@ class APICaller {
             }
             // catch if there are any errors
             catch {
+                // handle from homeviewController
                 completion(.failure(APIError.failedTogetData))
             }
         }

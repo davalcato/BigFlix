@@ -10,12 +10,12 @@ import SDWebImage
 
 class TitleCollectionViewCell: UICollectionViewCell {
     
-    //
     static let identifier = "TitleCollectionViewCell"
-    
+    // image view to pass the poster thru
     private let posterImageView: UIImageView = {
         
         let imageView = UIImageView()
+        // fill the whole cell
         imageView.contentMode = .scaleAspectFill
         return imageView
         
@@ -36,13 +36,10 @@ class TitleCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         posterImageView.frame = contentView.bounds
     }
-    // add third party library to update the poster
+    // add third party library to retrieve poster image
     public func configure(with model: String) {
-        // set image with url then pass model
-        guard let url = URL(string: model) else {return}
-        // hold the url for the poster
-        posterImageView.sd_setImage(with: url, completed: nil)
-        
+        // hold the url for the poster were looking for 
+        print(model)
     }
     
 }

@@ -9,7 +9,7 @@ import UIKit
 
 // define new enum
 enum Sections: Int {
-    // define cases
+    // four sections
     case TrendingMovies = 0
     case TrendingTv = 1
     case Popular = 2
@@ -17,21 +17,10 @@ enum Sections: Int {
     case TopRated = 4
 }
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    
-    
+class HomeViewController: UIViewController {
     
     // an array to hold text
     let sectionTitles: [String] = ["Trending Movies", "Trending Tv", "Popular", "Up Coming Movies", "Top Rated"]
-    
     
     private let homeFeedTable: UITableView = {
         // Instantize the table here
@@ -46,7 +35,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.backgroundColor = .systemBackground
         // added tableview to view
         view.addSubview(homeFeedTable)
-        
         // add data
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
@@ -59,10 +47,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             y: 0,
             width: view.bounds.width,
             height: 370))
-        
         // tableview header
         homeFeedTable.tableHeaderView = headerView
-        
     }
     
     private func configureNavBar() {
@@ -99,11 +85,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
     }
-    // calling the getTrendingMovies
-    private func fetchData() {
-        
-
     
+}
+
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+   
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }
@@ -116,7 +103,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
-        
+        // switch titles section cases
         switch indexPath.section {
             
             // handle the cases for each section
@@ -125,12 +112,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             APICaller.shared.getTrendingMovies { result in
                 switch result {
                 case .success(let titles):
-                    // pass results
+                    // receive an array of titles
                     cell.configure(with: titles)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
+            
         case Sections.TrendingTv.rawValue:
             // make the API call
             APICaller.shared.getTrendingTvs { result in
@@ -176,6 +164,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     print(error)
                 }
             }
+            // switch to be an exhaustive 
         default:
             return UITableViewCell()
         }
@@ -219,7 +208,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
   }
     
-}
 
 
 
