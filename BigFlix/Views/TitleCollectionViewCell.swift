@@ -39,7 +39,12 @@ class TitleCollectionViewCell: UICollectionViewCell {
     // add third party library to retrieve poster image
     public func configure(with model: String) {
         // hold the url for the poster were looking for 
-        print(model)
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else {
+            
+            return
+        }
+        // use API to search poster image
+        posterImageView.sd_setImage(with: url, completed: nil)
     }
     
 }
