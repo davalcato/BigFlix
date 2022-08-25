@@ -31,6 +31,12 @@ class UpComingViewController: UIViewController {
         upcomingTable.delegate = self
         upcomingTable.dataSource = self
     }
+    // add the tableview
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        upcomingTable.frame = view.bounds
+        
+    }
 }
 
 extension UpComingViewController: UITableViewDelegate, UITableViewDataSource {
