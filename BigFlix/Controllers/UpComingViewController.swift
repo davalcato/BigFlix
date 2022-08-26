@@ -82,4 +82,8 @@ extension UpComingViewController: UITableViewDelegate, UITableViewDataSource {
         // return cell
         return cell
     }
+    // fixed the height of the row
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
+    }
 }

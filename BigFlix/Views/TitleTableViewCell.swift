@@ -14,6 +14,8 @@ class TitleTableViewCell: UITableViewCell {
     private let playTitleButton: UIButton = {
         // intialize
         let button = UIButton()
+        // set the image
+        button.setImage(UIImage(systemName: "play.circle"), for: .normal)
         // activate the autolayout
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -32,7 +34,7 @@ class TitleTableViewCell: UITableViewCell {
     // hold the poster for the image we retrieve
     private let titlesPostUIImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
         
