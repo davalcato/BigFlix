@@ -68,11 +68,20 @@ class TitleTableViewCell: UITableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: titlesPostUIImageView.trailingAnchor, constant: 20),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ]
+        // button constraint
+        let playTitleButtonConstraints = [
+            playTitleButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            // fix the middle cell as well
+            playTitleButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        
+        ]
+        
         // activate the NSLayoutConstraint
         NSLayoutConstraint.activate(titlesPostUIImageViewConstraints)
         // activate the NSLayoutConstraint
         NSLayoutConstraint.activate(titleLabelConstraints)
-        
+        // activate the NSLayoutConstraint
+        NSLayoutConstraint.activate(playTitleButtonConstraints)
     }
     // create a public function and pass the viewmodel
     public func configure(with model: TitleViewModel) {
@@ -85,11 +94,7 @@ class TitleTableViewCell: UITableViewCell {
         titlesPostUIImageView.sd_setImage(with: url, completed: nil)
         // set the title
         titleLabel.text = model.titleName
-        
-        
     }
-
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
