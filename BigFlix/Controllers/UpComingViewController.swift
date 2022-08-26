@@ -16,7 +16,7 @@ class UpComingViewController: UIViewController {
     private let upcomingTable: UITableView = {
         
         let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
         
     }()
@@ -70,9 +70,16 @@ extension UpComingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = titles[indexPath.row].original_name ?? titles[indexPath.row].original_title ?? "unknown"
+        // dequeue cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else {
+            
+            return UITableViewCell()
+        }
+        // define the title
+        let title = titles[indexPath.row]
+        // access the cell thru the titles array - and if ?? not their - then add the value ""
+        cell.configure(with: TitleViewModel(titleName: (title.original_title ?? title.original_name) ?? "unknown title name", posterURL: title.poster_path ?? ""))
+        // return cell
         return cell
     }
-    
 }
