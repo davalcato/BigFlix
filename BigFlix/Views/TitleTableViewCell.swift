@@ -15,7 +15,7 @@ class TitleTableViewCell: UITableViewCell {
         // intialize
         let button = UIButton()
         // change the size of image
-        let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))
+        let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25))
         // pass the image
         button.setImage(image, for: .normal)
         // activate the autolayout
