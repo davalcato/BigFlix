@@ -14,10 +14,13 @@ class TitleTableViewCell: UITableViewCell {
     private let playTitleButton: UIButton = {
         // intialize
         let button = UIButton()
-        // set the image
-        button.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        // change the size of image
+        let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))
+        // pass the image
+        button.setImage(image, for: .normal)
         // activate the autolayout
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
         return button
     }()
     
