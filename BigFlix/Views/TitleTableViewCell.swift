@@ -23,7 +23,6 @@ class TitleTableViewCell: UITableViewCell {
         button.tintColor = .white
         return button
     }()
-    
     // label to the hold title name
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -33,12 +32,13 @@ class TitleTableViewCell: UITableViewCell {
         
     }()
     
-    
     // hold the poster for the image we retrieve
     private let titlesPostUIImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        // prevent each poster from over flowing in container
+        imageView.clipsToBounds = true
         return imageView
         
     }()
@@ -62,8 +62,8 @@ class TitleTableViewCell: UITableViewCell {
         let titlesPostUIImageViewConstraints = [
             // an array constraining the leading
             titlesPostUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            titlesPostUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            titlesPostUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            titlesPostUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            titlesPostUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             titlesPostUIImageView.widthAnchor.constraint(equalToConstant: 100)
         ]
         // complete adding the constraints

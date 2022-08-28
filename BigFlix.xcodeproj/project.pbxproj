@@ -204,9 +204,9 @@
 			children = (
 				757CCD9A289B3B39003492D9 /* HomeViewController.swift */,
 				7572A57A2895D13500EBA84D /* MainTabBarViewController.swift */,
+				757CCD9C289B3FA6003492D9 /* UpComingViewController.swift */,
 				757CCD9E289B3FEE003492D9 /* SearchViewController.swift */,
 				757CCDA0289B403B003492D9 /* DownloadsViewController.swift */,
-				757CCD9C289B3FA6003492D9 /* UpComingViewController.swift */,
 				7507215328A31C6200BB3DE2 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
