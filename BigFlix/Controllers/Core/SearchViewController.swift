@@ -18,6 +18,16 @@ class SearchViewController: UIViewController {
         table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
     }()
+    // search controller
+    private let searchController: UISearchController = {
+        // new controller that specifies results
+        let controller = UISearchController(searchResultsController: SearchResultsViewController())
+        // message to prompt the user
+        controller.searchBar.placeholder = "Search for a Movie or a Tv Show"
+        // translucent background with minimal
+        controller.searchBar.searchBarStyle = .minimal
+        return controller
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +40,9 @@ class SearchViewController: UIViewController {
         // set delegate and datasource
         discoverTable.delegate = self
         discoverTable.dataSource = self
+        
+        // pass searchcontroller 
+        navigationItem.searchController = searchController
         
         // fetch
         fetchDiscoverMovies()
