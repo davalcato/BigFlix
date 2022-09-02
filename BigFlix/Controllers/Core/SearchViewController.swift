@@ -43,6 +43,8 @@ class SearchViewController: UIViewController {
         
         // pass searchcontroller 
         navigationItem.searchController = searchController
+        // change cancel button color
+        navigationController?.navigationBar.tintColor = .white
         
         // fetch
         fetchDiscoverMovies()
