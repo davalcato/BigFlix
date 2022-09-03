@@ -51,9 +51,7 @@ class HomeViewController: UIViewController {
         homeFeedTable.tableHeaderView = headerView
         
         // Call APICaller for func getMovie
-        APICaller.shared.getMovie(with: "Harry Potter") { result in
-            //
-        }
+        
     }
     
     private func configureNavBar() {
@@ -108,7 +106,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         // switch titles section cases
         switch indexPath.section {
-            
             // handle the cases for each section
         case Sections.TrendingMovies.rawValue:
             // make the API call
@@ -121,7 +118,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     print(error.localizedDescription)
                 }
             }
-            
         case Sections.TrendingTv.rawValue:
             // make the API call
             APICaller.shared.getTrendingTvs { result in

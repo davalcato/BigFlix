@@ -220,9 +220,12 @@ class APICaller {
             do {
                 // serialize the request using JSONDecoder
                 let results = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
-                print(results)
+                // access the first element
+                completion(.success(results.items[0]))
                 
             } catch {
+                // pass the failure
+                completion(.failure(error))
                 print(error.localizedDescription)
             }
         }
