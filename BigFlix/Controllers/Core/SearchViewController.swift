@@ -45,9 +45,11 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = searchController
         // change cancel button color
         navigationController?.navigationBar.tintColor = .white
-        
         // fetch
         fetchDiscoverMovies()
+        // update the search controller
+        searchController.searchResultsUpdater = self
+        
     }
     
     // define function
@@ -96,6 +98,39 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+}
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        // get query from searchBar
+        let searchBar = searchController.searchBar
+        
+        guard let query = searchBar.text,
+              // make sure its ok to search query and not empty
+              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              // count is greater then
+              query.trimmingCharacters(in: .whitespaces).count >= 3,
+              // set the result controller
+              let resultController = searchController.searchResultsController as? SearchResultsViewController else {
+                  
+                  return
+              }
+        // call function
+        APICaller.shared.search(with: query) { result in
+            // main thread
+            DispatchQueue.main.async {
+                // switch results
+                switch result {
+                    // get results
+                case.success(let titles):
+                    resultController.titles = titles
+                    resultController.searchResultsControllerView.reloadData()
+                case.failure(let error):
+                    print(error.localizedDescription)
+                    
+                }
+            }
+        }
     }
 }
 

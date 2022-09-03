@@ -9,11 +9,11 @@ import UIKit
 
 class SearchResultsViewController: UIViewController {
     
-    // an array
-    private var titles: [Title] = [Title]()
+    // an array made public to access from SearchViewController
+    public var titles: [Title] = [Title]()
     
     // intialize
-    private let searchResultsControllerView: UICollectionView = {
+    public let searchResultsControllerView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
         // for multiply screens with UIScreen divide / by 3 and subtrack 10
@@ -47,7 +47,7 @@ class SearchResultsViewController: UIViewController {
 }
 extension SearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return titles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -55,8 +55,10 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
             return UICollectionViewCell()
         }
-        // specify the color of background
-        cell.backgroundColor = .blue
+        // configure with the array
+        let title = titles[indexPath.row]
+        // access to poster path
+        cell.configure(with: title.poster_path ?? "")
         return cell
     }
 }

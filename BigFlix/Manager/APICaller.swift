@@ -134,7 +134,6 @@ class APICaller {
                 
             } catch {
                 completion(.failure(APIError.failedTogetData))
-                
             }
         }
         // resume task
@@ -142,7 +141,6 @@ class APICaller {
      }
     // add new func for discover
     func getDiscoverMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
-        
         guard let url = URL(string:
                                 "\(Constants.baseURL)/3/discover/movie?api_key=\(Constants.API_KEY)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else {return}
         // data task
@@ -163,8 +161,37 @@ class APICaller {
         }
         // resume task
         task.resume()
+    }
+    // search function that takes a query of string
+    func search(with query: String, completion: @escaping (Result<[Title], Error>) -> Void) {
         
+        // format the query
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            return
+        }
         
+        // fetch a new url
+        guard let url = URL(string: "\(Constants.baseURL)/3/search/movie?api_key=\(Constants.API_KEY)&query=\(query)") else { return
+        }
+        // data task
+        let task = URLSession.shared.dataTask(
+            with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                // serialize the request using JSONDecoder
+                let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+                // pass on completion the array of title
+                completion(.success(results.results))
+                
+            } catch {
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+        // resume task
+        task.resume()
     }
     
 }
