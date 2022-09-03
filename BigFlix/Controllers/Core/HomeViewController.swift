@@ -49,6 +49,9 @@ class HomeViewController: UIViewController {
             height: 370))
         // tableview header
         homeFeedTable.tableHeaderView = headerView
+        
+        // Call APICaller for func getMovie
+        APICaller.shared.getMovie(with: "Harry Potter") 
     }
     
     private func configureNavBar() {
@@ -87,8 +90,6 @@ class HomeViewController: UIViewController {
     }
     
 }
-
-
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
    
     func numberOfSections(in tableView: UITableView) -> Int {

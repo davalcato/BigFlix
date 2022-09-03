@@ -4,6 +4,7 @@
 //
 //  Created by Daval Cato on 8/17/22.
 //
+// AIzaSyABOvZBHsPri5JMyZlEpLgNClWOyJnYByk
 
 import Foundation
 
@@ -11,6 +12,12 @@ struct Constants {
     static let API_KEY = "e3b0726e5bf9b6cb3662f028a20dfbf0"
     // new column
     static let baseURL = "https://api.themoviedb.org"
+    // API Key from YouTube
+    static let YoutubeAPI_KEY = "AIzaSyABOvZBHsPri5JMyZlEpLgNClWOyJnYByk"
+    static let YoutubeBaseURL = "https://youtube.googleapis.com/youtube/v3/search?"
+    
+    
+    
 }
 
 // return string
@@ -188,6 +195,35 @@ class APICaller {
                 
             } catch {
                 completion(.failure(APIError.failedTogetData))
+            }
+        }
+        // resume task
+        task.resume()
+    }
+    // Youtube API key
+    func getMovie(with query: String) {
+        
+        // format the query
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            return
+        }
+        // fetch a new url
+        guard let url = URL(string: "\(Constants.YoutubeBaseURL)q=\(query)&key=\(Constants.YoutubeAPI_KEY)") else { return
+        }
+        // data task
+        let task = URLSession.shared.dataTask(
+            with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                // serialize the request using JSONDecoder
+                let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                print(results)
+                
+            } catch {
+                print(error.localizedDescription)
             }
         }
         // resume task
