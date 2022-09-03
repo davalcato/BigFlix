@@ -201,7 +201,7 @@ class APICaller {
         task.resume()
     }
     // Youtube API key
-    func getMovie(with query: String) {
+    func getMovie(with query: String, completion: @escaping (Result<VideoElement, Error>) -> Void) {
         
         // format the query
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
@@ -219,7 +219,7 @@ class APICaller {
             
             do {
                 // serialize the request using JSONDecoder
-                let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                let results = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
                 print(results)
                 
             } catch {

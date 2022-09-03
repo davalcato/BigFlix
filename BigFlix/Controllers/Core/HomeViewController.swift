@@ -51,7 +51,9 @@ class HomeViewController: UIViewController {
         homeFeedTable.tableHeaderView = headerView
         
         // Call APICaller for func getMovie
-        APICaller.shared.getMovie(with: "Harry Potter") 
+        APICaller.shared.getMovie(with: "Harry Potter") { result in
+            //
+        }
     }
     
     private func configureNavBar() {
