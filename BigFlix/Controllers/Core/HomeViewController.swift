@@ -49,9 +49,6 @@ class HomeViewController: UIViewController {
             height: 370))
         // tableview header
         homeFeedTable.tableHeaderView = headerView
-        
-        // Call APICaller for func getMovie
-        navigationController?.pushViewController(TitlePreviewViewController(), animated: true)
     }
     
     private func configureNavBar() {
@@ -104,6 +101,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        
+        cell.delegate = self
+        
         // switch titles section cases
         switch indexPath.section {
             // handle the cases for each section
@@ -206,6 +206,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
   }
+extension HomeViewController: CollectionViewTableViewCellDelegate {
+    func CollectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            // view model
+            let vc = TitlePreviewViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    
+}
     
 
 
