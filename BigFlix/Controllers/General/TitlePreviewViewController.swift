@@ -71,7 +71,7 @@ class TitlePreviewViewController: UIViewController {
     func configureConstraints() {
         // set the webviews array
         let webViewConstraints = [
-            webView.topAnchor.constraint(equalTo: view.topAnchor),
+            webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.heightAnchor.constraint(equalToConstant: 250)
@@ -88,11 +88,17 @@ class TitlePreviewViewController: UIViewController {
             // add some margin to the left
             overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         ]
-        
+        // button
+        let downloadButtonConstraints = [
+            downloadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            // add top margin between button
+            downloadButton.topAnchor.constraint(equalTo: overviewLabel.bottomAnchor, constant: 25)
+        ]
         
         NSLayoutConstraint.activate(webViewConstraints)
         NSLayoutConstraint.activate(titleLabelConstraints)
         NSLayoutConstraint.activate(overviewLabelConstraints)
+        NSLayoutConstraint.activate(downloadButtonConstraints)
     }
 
 }
