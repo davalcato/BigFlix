@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
         homeFeedTable.tableHeaderView = headerView
         
         // Call APICaller for func getMovie
-        
+        navigationController?.pushViewController(TitlePreviewViewController(), animated: true)
     }
     
     private func configureNavBar() {
