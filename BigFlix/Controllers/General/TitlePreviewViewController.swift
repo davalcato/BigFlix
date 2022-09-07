@@ -92,7 +92,11 @@ class TitlePreviewViewController: UIViewController {
         let overviewLabelConstraints = [
             overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
             // add some margin to the left
-            overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+            overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            // this corrects the text on the video back screen
+            overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            
+            
         ]
         // button
         let downloadButtonConstraints = [
