@@ -131,4 +131,29 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
             }
         }
     }
+    // implement new function for downloading the title
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        // define
+        let config = UIContextMenuConfiguration(
+            identifier: nil,
+            // download action
+            previewProvider: nil) { _ in
+            let downloadAction = UIAction(
+                title: "Download",
+                image: nil,
+                identifier: nil,
+                discoverabilityTitle: nil,
+                state: .off) { _ in
+                // print
+                print("Download tap")
+            }
+            return UIMenu(
+                title: "",
+                image: nil,
+                identifier: nil,
+                options: .displayInline,
+                children: [downloadAction])
+        }
+        return config
+    }
 }
