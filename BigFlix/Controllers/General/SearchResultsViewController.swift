@@ -8,10 +8,20 @@
 
 import UIKit
 
+// new procotol with type AnyObject
+protocol SearchResultsViewControllerDelegate: AnyObject {
+    // new function with viewModel
+    func SearchResultsViewControllerDidTapItem(_ viewModel: TitlePreviewViewModel)
+    
+}
+
 class SearchResultsViewController: UIViewController {
     
     // an array made public to access from SearchViewController
     public var titles: [Title] = [Title]()
+    
+    // create the public for the TitlePreviewViewModel with same type of protocol
+    public weak var delegate: SearchResultsViewControllerDelegate?
     
     // intialize
     public let searchResultsControllerView: UICollectionView = {
@@ -61,5 +71,29 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         // access to poster path
         cell.configure(with: title.poster_path ?? "")
         return cell
+    }
+    
+    // tap item in collectionView
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // the instance
+        collectionView.deselectItem(at: indexPath, animated: true)
+        // title here
+        let title = titles[indexPath.row]
+        let titleName = title.original_title ?? ""
+        
+        // grab video element
+        APICaller.shared.getMovie(with: titleName) { [weak self] result in
+            // switch result
+            switch result {
+                
+            case .success(let videoElement):
+                // inside of this
+                self?.delegate?.SearchResultsViewControllerDidTapItem(TitlePreviewViewModel(title: title.original_title ?? "", youtubeView: videoElement, titleOverview: title.overview ?? ""))
+               
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
