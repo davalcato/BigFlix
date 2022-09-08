@@ -73,6 +73,10 @@ class CollectionViewTableViewCell: UITableViewCell {
             self?.collectionView.reloadData()
         }
     }
+    // core data to download titles 
+    private func downloadTitleAt(indexPath: IndexPath) {
+        print("Download \(titles[indexPath.row].original_title)")
+    }
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -143,9 +147,8 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                 image: nil,
                 identifier: nil,
                 discoverabilityTitle: nil,
-                state: .off) { _ in
-                // print
-                print("Download tap")
+                state: .off) { [weak self] _ in
+                self?.downloadTitleAt(indexPath: indexPath)
             }
             return UIMenu(
                 title: "",
