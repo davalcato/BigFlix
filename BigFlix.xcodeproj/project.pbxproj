@@ -33,6 +33,8 @@
 		757CCD9D289B3FA6003492D9 /* UpComingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CCD9C289B3FA6003492D9 /* UpComingViewController.swift */; };
 		757CCD9F289B3FEE003492D9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CCD9E289B3FEE003492D9 /* SearchViewController.swift */; };
 		757CCDA1289B403B003492D9 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CCDA0289B403B003492D9 /* DownloadsViewController.swift */; };
+		75DF50A628CABCD1005FFC55 /* BigFlixModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75DF50A428CABCD1005FFC55 /* BigFlixModel.xcdatamodeld */; };
+		75DF50A828CAC15A005FFC55 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF50A728CAC15A005FFC55 /* DataPersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		757CCD9C289B3FA6003492D9 /* UpComingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingViewController.swift; sourceTree = "<group>"; };
 		757CCD9E289B3FEE003492D9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		757CCDA0289B403B003492D9 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		75DF50A528CABCD1005FFC55 /* BigFlixModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BigFlixModel.xcdatamodel; sourceTree = "<group>"; };
+		75DF50A728CAC15A005FFC55 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				750205E328ADACD700A8FA95 /* APICaller.swift */,
+				75DF50A728CAC15A005FFC55 /* DataPersistenceManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				7572A57F2895D13A00EBA84D /* Assets.xcassets */,
 				7572A5812895D13A00EBA84D /* LaunchScreen.storyboard */,
 				7572A5842895D13A00EBA84D /* Info.plist */,
+				75DF50A428CABCD1005FFC55 /* BigFlixModel.xcdatamodeld */,
 			);
 			path = BigFlix;
 			sourceTree = "<group>";
@@ -391,12 +397,14 @@
 				7533714328B053E8009E92A8 /* Extensions.swift in Sources */,
 				7534FB7C28B96CC600937E1E /* TitleTableViewCell.swift in Sources */,
 				7534FB8428C40C1400937E1E /* YoutubeSearchResponse.swift in Sources */,
+				75DF50A628CABCD1005FFC55 /* BigFlixModel.xcdatamodeld in Sources */,
 				7507215428A31C6200BB3DE2 /* ProfileViewController.swift in Sources */,
 				750205E428ADACD700A8FA95 /* APICaller.swift in Sources */,
 				7534FB7E28B975DC00937E1E /* TitleViewModel.swift in Sources */,
 				7572A5792895D13500EBA84D /* SceneDelegate.swift in Sources */,
 				7534FB8828C4244900937E1E /* TitlePreviewViewModel.swift in Sources */,
 				757CCD9B289B3B39003492D9 /* HomeViewController.swift in Sources */,
+				75DF50A828CAC15A005FFC55 /* DataPersistenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,6 +781,19 @@
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		75DF50A428CABCD1005FFC55 /* BigFlixModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				75DF50A528CABCD1005FFC55 /* BigFlixModel.xcdatamodel */,
+			);
+			currentVersion = 75DF50A528CABCD1005FFC55 /* BigFlixModel.xcdatamodel */;
+			path = BigFlixModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7572A56B2895D13500EBA84D /* Project object */;
 }

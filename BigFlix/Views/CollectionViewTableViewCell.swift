@@ -73,9 +73,18 @@ class CollectionViewTableViewCell: UITableViewCell {
             self?.collectionView.reloadData()
         }
     }
-    // core data to download titles 
+    // core data to download titles
     private func downloadTitleAt(indexPath: IndexPath) {
-        print("Download \(titles[indexPath.row].original_title)")
+       // download title
+        DataPersistenceManager.shared.downloadTitleWith(model: titles[indexPath.row]) { result in
+            // switching on result
+            switch result {
+            case.success():
+                print("downloaded to database")
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
