@@ -11,14 +11,12 @@ class UpComingViewController: UIViewController {
     
     // assign to a local variable switch result
     private var titles: [Title] = [Title]()
-    
     // added new table
     private let upcomingTable: UITableView = {
         
         let table = UITableView()
         table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
-        
     }()
 
     override func viewDidLoad() {
@@ -86,6 +84,7 @@ extension UpComingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
+    
     // implementing function to select
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // reference table

@@ -14,11 +14,8 @@ class DataPersistenceManager {
     // for the error for the "do" case below
     enum DatabaseError: Error {
         case failedToSaveData
-        
+        case failedToFetchDatabase
     }
-    
-    
-    
     
     // a shared instance across the app
     static let shared = DataPersistenceManager()
@@ -28,8 +25,8 @@ class DataPersistenceManager {
         // download title with model passed inside collectionView
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
-            
         }
+        
         // enable us to talk to the manager
         let context = appDelegate.persistentContainer.viewContext
         // what we're storing in database / pass context
@@ -46,7 +43,6 @@ class DataPersistenceManager {
         item.vote_count = Int64(model.vote_count)
         item.vote_average = model.vote_average
         
-        
         do {
             // context manager waiting for us to order and save data
             try context.save()
@@ -54,6 +50,36 @@ class DataPersistenceManager {
             completion(.success(()))
         } catch {
             completion(.failure(DatabaseError.failedToSaveData))
+        }
+    }
+    
+    // call new func
+    func fetchingTitlesFromDatabase(completion: @escaping (Result<[TitleItem], Error>) -> Void) {
+        
+        // download title with model passed inside collectionView
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // enable us to talk to the manager
+        let context = appDelegate.persistentContainer.viewContext
+        
+        // talk to contect manager for a request
+        let request: NSFetchRequest<TitleItem>
+        // request ready to be executed for the context manager
+        request = TitleItem.fetchRequest()
+        
+        // dispatch the request for database
+        do {
+            // asking to access the database
+            let titles = try context.fetch(request)
+            // pass back to the result
+            completion(.success(titles))
+            
+            
+        } catch {
+            print(error.localizedDescription)
+            completion(.failure(DatabaseError.failedToFetchDatabase))
         }
     }
 }
