@@ -15,6 +15,8 @@ class DataPersistenceManager {
     enum DatabaseError: Error {
         case failedToSaveData
         case failedToFetchDatabase
+        // pass new error
+        case failedToDeleteData
     }
     
     // a shared instance across the app
@@ -76,12 +78,37 @@ class DataPersistenceManager {
             // pass back to the result
             completion(.success(titles))
             
-            
         } catch {
             print(error.localizedDescription)
             completion(.failure(DatabaseError.failedToFetchDatabase))
         }
     }
+    // new function to get TitleItem
+    func deleteTitleWith(model: TitleItem, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        // download title with model passed inside collectionView
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // enable us to talk to the manager
+        let context = appDelegate.persistentContainer.viewContext
+        
+        // asking database to delete certain objects
+        context.delete(model)
+        
+        // commit those changes inside database
+        do {
+            // confirm deletion
+            try context.save()
+            completion(.success(()))
+            
+        } catch {
+            completion(.failure(DatabaseError.failedToDeleteData))
+        }
+        
+    }
+    
 }
 
 
