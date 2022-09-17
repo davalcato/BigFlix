@@ -80,7 +80,8 @@ class CollectionViewTableViewCell: UITableViewCell {
             // switching on result
             switch result {
             case.success():
-                print("downloaded to database")
+                // notify listeners to this notication
+                NotificationCenter.default.post(name: NSNotification.Name("download!"), object: nil)
             case.failure(let error):
                 print(error.localizedDescription)
             }

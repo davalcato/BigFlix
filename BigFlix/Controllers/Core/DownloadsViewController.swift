@@ -38,6 +38,16 @@ class DownloadsViewController: UIViewController {
         downloadedTable.dataSource = self
         // call
         fetchLocalStorageForDownload()
+        // listen for the changes to the notication center
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name("downloaded!"),
+            object: nil,
+            queue: nil) { _ in
+            self.fetchLocalStorageForDownload()
+        }
+        
+        
+        
     }
     
     // new function
@@ -93,7 +103,7 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
         switch editingStyle {
           // attempting to delete an item
         case .delete:
-            // delete from database itself
+            // deleting from the database
             DataPersistenceManager.shared.deleteTitleWith(
                 model: titles[indexPath.row]) { [weak self] result in
                 // switch on the result
@@ -103,8 +113,7 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-                
-            // remove from titles array
+            // remove titles from array
             self?.titles.remove(at: indexPath.row)
                 tableView.deleteRows(
                     at: [indexPath], with: .fade)
